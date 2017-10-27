@@ -1,0 +1,32 @@
+Remote Login: student / Welcome17
+1. https://wdflbmt0794.wdf.sap.corp:51023/ 
+2. Abcd1234
+7. wdflbmt0794.wdf.sap.corp / 96
+8. SYSTEM / Abcd1234
+14. https://wdflbmt0794.wdf.sap.corp:51021 
+15. https://wdflbmt0794.wdf.sap.corp:51021 
+19. ssl / systemPKI
+26. tdhadm / admin
+35. tdhadm / admin
+36. admin
+42. \\Studentshare\HBD169\Certificates
+48. \\Studentshare\HBD169\Certificates
+51. SYSTEM / Abcd1234
+55. CREATE CREDENTIAL FOR COMPONENT 'DATABASE_REPLICATION' PURPOSE 'wdflbmt0794.wdf.sap.corp:30001' TYPE 'PASSWORD' USING 'user="SYSTEM";password="Abcd1234"';
+56. CREATE DATABASE TD1 AS REPLICA OF TDH AT 'wdflbmt0794.wdf.sap.corp:30001';
+57. select * from SYS_DATABASES.M_DATABASE_REPLICAS; / select * from SYS_DATABASES.M_DATABASE_REPLICA_STATISTICS; / Check tab Result 2.
+61. /usr/sap/TDH/HDB00/wdflbmt0794/work/DB_TDH/HBD169/data
+66. ALTER DATABASE TD1 FINALIZE REPLICA;
+67. Select * from m_databases;
+68. Login: COCKPIT_ADMIN / Abcd1234. Register: wdflbmt0794.wdf.sap.corp / 00 / tenant = TD1 / SYSTEM / Abcd1234 
+69. SYSTEM / Abcd1234
+75. https://wdflbmt0794.wdf.sap.corp:51021/
+
+
+
+==============================================================================
+
+Troubleshooting:
+drop database TD1;
+drop CREDENTIAL FOR COMPONENT 'DATABASE_REPLICATION' PURPOSE 'wdflbmt0794.wdf.sap.corp:30001' TYPE 'PASSWORD';
+
